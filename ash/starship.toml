@@ -1,0 +1,35 @@
+# ash's prompt: oh-my-zsh's robbyrussell, the one ThePrimeagen uses,
+#
+#   ash git:(main) ✗
+#
+# without its arrow. ✗ means uncommitted changes
+# (untracked files too). `prompt-lines 2` switches to the two-line prompt
+# in ~/.config/starship.toml.
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = "$directory$git_branch${custom.dirty}"
+add_newline = false
+
+[character]
+success_symbol = "[➜](bold green) "
+error_symbol = "[➜](bold red) "
+vimcmd_symbol = "[➜](bold green) "
+format = "$symbol"
+
+[directory]                  # just the folder's name, like zsh's %c
+truncation_length = 1
+truncate_to_repo = false
+home_symbol = "~"
+style = "bold cyan"
+read_only = ""
+format = "[$path]($style) "
+
+[git_branch]
+symbol = ""
+format = "[git:\\(](bold blue)[$branch](bold red)[\\)](bold blue) "
+
+[custom.dirty]               # what robbyrussell asks: anything in git status
+when = 'test -n "$(git status --porcelain --ignore-submodules=dirty 2>/dev/null | head -n 1)"'
+require_repo = true
+shell = ["sh"]
+format = "[✗](bold yellow) "

@@ -1,0 +1,102 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  Ghostty  
+# ─────────────────────────────────────────────────────────────────────────────
+
+# --- Window Decorations ---
+window-decoration = false
+macos-titlebar-style = hidden
+
+# --- Theme ---
+theme = rose pine
+
+# --- Background & Transparency ---
+background-opacity = 0.7
+background = #000000
+
+# --- Font & Terminal ---
+font-family = "Iosevka"
+font-size = 15
+font-thicken = true
+font-feature = calt
+font-feature = liga
+font-feature = dlig
+adjust-cell-height = 0%
+#font-style = Book
+#font-style-bold = Bold
+#font-style-italic = Book Italic
+
+
+# --- Shell and the term ---
+command = /Users/andrinoff/go/bin/ash
+term = ghostty
+
+# --- Cursor ---
+cursor-style = block
+shell-integration-features = no-cursor
+
+# --- MacOS Specifics ---
+macos-option-as-alt = left
+
+# --- Confirmation & Behavior ---
+confirm-close-surface = true
+scrollback-limit = 10000
+
+# --- Splits (but i use tmux instead) ---
+unfocused-split-opacity = 0.85
+unfocused-split-fill = #1d1f21
+split-divider-color = #373b41
+
+
+# --- Padding ---
+window-padding-balance = true
+window-padding-color = background
+
+# --- Keys (done for tmux) ---
+keybind = shift+enter=text:\x1b[13;2u
+keybind = ctrl+enter=text:\x1b[13;5u
+keybind = alt+arrow_left=unbind
+keybind = alt+arrow_right=unbind
+keybind = ctrl+shift+enter=text:\x1b[13;6u
+keybind = ctrl+backspace=text:\x1b[127;5u
+keybind = ctrl+shift+backspace=text:\x1b[127;6u
+keybind = ctrl+shift+a=text:\x1b[97;6u
+keybind = ctrl+shift+b=text:\x1b[98;6u
+keybind = ctrl+shift+c=text:\x1b[99;6u
+keybind = ctrl+shift+d=text:\x1b[100;6u
+keybind = ctrl+shift+e=text:\x1b[101;6u
+keybind = ctrl+shift+f=text:\x1b[102;6u
+keybind = ctrl+shift+g=text:\x1b[103;6u
+keybind = ctrl+shift+h=text:\x1b[104;6u
+keybind = ctrl+shift+i=text:\x1b[105;6u
+keybind = ctrl+shift+j=text:\x1b[106;6u
+keybind = ctrl+shift+k=text:\x1b[107;6u
+keybind = ctrl+shift+l=text:\x1b[108;6u
+keybind = ctrl+shift+m=text:\x1b[109;6u
+keybind = ctrl+shift+n=text:\x1b[110;6u
+keybind = ctrl+shift+o=text:\x1b[111;6u
+keybind = ctrl+shift+p=text:\x1b[112;6u
+keybind = ctrl+shift+q=text:\x1b[113;6u
+keybind = ctrl+shift+r=text:\x1b[114;6u
+keybind = ctrl+shift+s=text:\x1b[115;6u
+keybind = ctrl+shift+t=text:\x1b[116;6u
+keybind = ctrl+shift+u=text:\x1b[117;6u
+keybind = ctrl+shift+v=text:\x1b[118;6u
+keybind = ctrl+shift+w=text:\x1b[119;6u
+keybind = ctrl+shift+x=text:\x1b[120;6u
+keybind = ctrl+shift+y=text:\x1b[121;6u
+keybind = ctrl+shift+z=text:\x1b[122;6u
+keybind = ctrl+digit_0=text:\x1b[48;5u
+keybind = ctrl+digit_1=text:\x1b[49;5u
+keybind = ctrl+digit_2=text:\x1b[50;5u
+keybind = ctrl+digit_3=text:\x1b[51;5u
+keybind = ctrl+digit_4=text:\x1b[52;5u
+keybind = ctrl+digit_5=text:\x1b[53;5u
+keybind = ctrl+digit_6=text:\x1b[54;5u
+keybind = ctrl+digit_7=text:\x1b[55;5u
+keybind = ctrl+digit_8=text:\x1b[56;5u
+keybind = ctrl+digit_9=text:\x1b[57;5u
+keybind = ctrl+period=text:\x1b[46;5u
+keybind = ctrl+comma=text:\x1b[44;5u
+keybind = ctrl+semicolon=text:\x1b[59;5u
+keybind = ctrl+quote=text:\x1b[39;5u
+keybind = ctrl+equal=text:\x1b[61;5u

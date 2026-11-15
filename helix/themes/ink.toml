@@ -1,0 +1,93 @@
+# ink — grayscale UI, muted accents in code, transparent background
+
+"ui.background" = {}
+"ui.text" = { fg = "fg" }
+"ui.text.focus" = { fg = "white", modifiers = ["bold"] }
+"ui.linenr" = { fg = "gray3" }
+"ui.linenr.selected" = { fg = "white", modifiers = ["bold"] }
+"ui.cursorline.primary" = { bg = "gray1" }
+"ui.cursorcolumn.primary" = { bg = "gray1" }
+"ui.cursor" = { fg = "black", bg = "white" }
+"ui.cursor.primary" = { fg = "black", bg = "white" }
+"ui.cursor.match" = { fg = "white", bg = "gray3", modifiers = ["underlined"] }
+"ui.selection" = { bg = "gray2" }
+"ui.selection.primary" = { bg = "gray3" }
+"ui.bufferline" = { fg = "gray4" }
+"ui.bufferline.active" = { fg = "white", modifiers = ["bold", "underlined"] }
+"ui.popup" = { bg = "black" }
+"ui.window" = { fg = "gray3" }
+"ui.help" = { fg = "fg", bg = "black" }
+"ui.menu" = { fg = "fg", bg = "black" }
+"ui.menu.selected" = { fg = "black", bg = "white" }
+"ui.virtual.whitespace" = { fg = "gray2" }
+"ui.virtual.indent-guide" = { fg = "gray2" }
+"ui.virtual.inlay-hint" = { fg = "gray4", modifiers = ["italic"] }
+"ui.virtual.ruler" = { bg = "gray1" }
+"ui.virtual.jump-label" = { fg = "black", bg = "sand", modifiers = ["bold"] }
+"ui.gutter" = {}
+"ui.picker.header" = { fg = "gray4", modifiers = ["bold"] }
+
+"comment" = { fg = "gray4", modifiers = ["italic"] }
+"keyword" = { fg = "sand", modifiers = ["bold"] }
+"keyword.control" = { fg = "sand", modifiers = ["bold"] }
+"keyword.storage" = { fg = "sand" }
+"function" = { fg = "white" }
+"function.macro" = { fg = "sky", modifiers = ["bold"] }
+"type" = { fg = "sky" }
+"constant" = { fg = "rose" }
+"constant.numeric" = { fg = "rose" }
+"constant.builtin" = { fg = "rose", modifiers = ["bold"] }
+"string" = { fg = "moss" }
+"string.special" = { fg = "moss", modifiers = ["underlined"] }
+"variable" = { fg = "fg" }
+"variable.parameter" = { fg = "gray5", modifiers = ["italic"] }
+"variable.builtin" = { fg = "rose" }
+"attribute" = { fg = "sky" }
+"operator" = { fg = "gray5" }
+"punctuation" = { fg = "gray4" }
+"namespace" = { fg = "gray5" }
+"label" = { fg = "sand", modifiers = ["underlined"] }
+"special" = { fg = "sand" }
+"tag" = { fg = "sky" }
+
+"markup.heading" = { fg = "white", modifiers = ["bold"] }
+"markup.bold" = { modifiers = ["bold"] }
+"markup.italic" = { modifiers = ["italic"] }
+"markup.link.url" = { fg = "sky", modifiers = ["underlined"] }
+"markup.raw" = { fg = "moss", bg = "gray1" }
+"markup.list" = { fg = "sand" }
+"markup.quote" = { fg = "gray5", modifiers = ["italic"] }
+
+"diff.plus" = { fg = "moss" }
+"diff.minus" = { fg = "rose" }
+"diff.delta" = { fg = "sand" }
+
+"error" = { fg = "rose", modifiers = ["bold"] }
+"warning" = { fg = "sand" }
+"info" = { fg = "sky" }
+"hint" = { fg = "gray4" }
+"diagnostic.error" = { underline = { color = "rose", style = "curl" } }
+"diagnostic.warning" = { underline = { color = "sand", style = "curl" } }
+"diagnostic.info" = { underline = { color = "sky", style = "dotted" } }
+"diagnostic.hint" = { underline = { color = "gray4", style = "dotted" } }
+"diagnostic.unnecessary" = { modifiers = ["dim"] }
+
+"ui.statusline" = { fg = "gray5", bg = "gray1" }
+"ui.statusline.inactive" = { fg = "gray4", bg = "black" }
+"ui.statusline.normal" = { fg = "black", bg = "white", modifiers = ["bold"] }
+"ui.statusline.insert" = { fg = "black", bg = "sand", modifiers = ["bold"] }
+"ui.statusline.select" = { fg = "black", bg = "sky", modifiers = ["bold"] }
+
+[palette]
+black = "#0a0a0a"
+gray1 = "#161616"
+gray2 = "#242424"
+gray3 = "#3a3a3a"
+gray4 = "#6b6b6b"
+gray5 = "#a3a3a3"
+fg    = "#c8c8c8"
+white = "#ffffff"
+sand  = "#c9baa4"   # keywords, warnings
+sky   = "#9eb1bb"   # types, info
+moss  = "#a6b19d"   # strings, additions
+rose  = "#b09191"   # constants, errors, deletions

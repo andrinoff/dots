@@ -1,0 +1,26 @@
+# caelestia-mono · greyscale 16-colour ladder (Arch/Hyprland/Caelestia rice)
+# Hue order is kept as luminance order (blue < red < magenta < green < cyan < yellow),
+# every readable slot is ~10 levels apart, so diffs (red #82 vs green #ac) stay legible.
+background = #000
+foreground = #e2e2e2
+cursor-color = #ffffff
+cursor-text = #111111
+selection-background = #3a3a3a
+selection-foreground = #ffffff
+
+palette = 0=#262626
+palette = 1=#828282
+palette = 2=#acacac
+palette = 3=#e0e0e0
+palette = 4=#787878
+palette = 5=#979797
+palette = 6=#cbcbcb
+palette = 7=#c1c1c1
+palette = 8=#5e5e5e
+palette = 9=#a2a2a2
+palette = 10=#d6d6d6
+palette = 11=#f5f5f5
+palette = 12=#8d8d8d
+palette = 13=#b6b6b6
+palette = 14=#eaeaea
+palette = 15=#ffffff

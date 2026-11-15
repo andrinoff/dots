@@ -1,0 +1,105 @@
+[editor]
+line-number = "absolute"
+cursorcolumn = true
+undercurl = true
+cursorline = true
+color-modes = true
+bufferline = "multiple"
+true-color = true
+rulers = [100]
+idle-timeout = 50
+completion-trigger-len = 1
+end-of-line-diagnostics = "hint"
+popup-border = "all"
+scrolloff = 8
+indent-heuristic = "tree-sitter"
+insert-final-newline = true
+trim-trailing-whitespace = true
+
+[editor.auto-save]
+focus-lost = true
+after-delay.enable = true
+after-delay.timeout = 3000
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.whitespace]
+render = { space = "none", tab = "all", nbsp = "all", newline = "none" }
+characters = { tab = "→", tabpad = "·", nbsp = "⍽", newline = "⏎" }
+
+[editor.indent-guides]
+render = true
+character = "▏"
+skip-levels = 1
+
+[editor.gutters]
+layout = ["diff", "diagnostics", "line-numbers", "spacer"]
+line-numbers.min-width = 2
+
+[editor.soft-wrap]
+enable = true
+max-wrap = 25
+wrap-indicator = "↪ "
+
+[editor.statusline]
+separator = " "
+left = ["mode", "separator", "spinner", "version-control", "separator", "file-name", "file-modification-indicator", "read-only-indicator", "separator", "diagnostics"]
+center = ["workspace-diagnostics"]
+right = ["selections", "primary-selection-length", "separator", "register", "position", "position-percentage", "separator", "file-encoding", "file-type"]
+mode.normal = "  "
+mode.insert = "  "
+mode.select = " 󰒅 "
+
+[editor.lsp]
+display-messages = true
+display-inlay-hints = true
+display-signature-help-docs = true
+auto-signature-help = true
+
+[editor.inline-diagnostics]
+cursor-line = "warning"
+other-lines = "error"
+prefix-len = 2
+max-wrap = 30
+max-diagnostics = 5
+
+[editor.word-completion]
+enable = true
+trigger-length = 4
+
+[editor.file-picker]
+hidden = false
+git-ignore = true
+
+[editor.smart-tab]
+enable = true
+
+[keys.normal]
+esc = ["collapse_selection", "keep_primary_selection"]
+"C-s" = ":w"
+"C-q" = ":q"
+"C-/" = "toggle_comments"
+"A-j" = ["extend_to_line_bounds", "delete_selection", "paste_after"]
+"A-k" = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
+"tab" = "goto_next_buffer"
+"S-tab" = "goto_previous_buffer"
+"C-w" = ":buffer-close"
+"C-g" = [":new", ":insert-output lazygit", ":buffer-close!", ":redraw"]
+"C-e" = "file_explorer_in_current_buffer_directory"
+"C-f" = "file_picker"
+"C-b" = "buffer_picker"
+"A-d" = "split_selection_on_newline"
+"A-minus" = "hsplit"
+
+[keys.normal.space]
+"." = "file_picker_in_current_buffer_directory"
+"e" = "file_explorer"
+"t" = ":toggle lsp.display-inlay-hints"
+
+[keys.insert]
+"C-s" = ["normal_mode", ":w"]
+"A-j" = ["normal_mode", "extend_to_line_bounds", "delete_selection", "paste_after", "insert_mode"]
+"A-k" = ["normal_mode", "extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before", "insert_mode"]

@@ -1,0 +1,133 @@
+[editor]
+theme = "rose-pine"
+mode = "helix"
+high-fps = true
+smooth-scroll = false
+auto-save = "focus-change"
+format-on-save = true
+restore-session = false
+cursor-line = false
+scroll-off = 8
+rulers = []
+minimap = false
+breadcrumbs = true
+sticky-scroll = true
+indent-scope = false
+inlay-hints = false
+status-bar = ["mode", "git", "notification"]
+background = false
+cursor-shape = { normal = "block", insert = "block", select = "underline"}
+relative-line-numbers = true
+cursor-number-align = "left"
+problems-all-files = true
+command-line = "float"
+search-position = "top"
+git-diff = "joy"
+wrap = false
+scrollbar = true
+completion-docs = true
+inline-diagnostics-when = "on-save"
+git-blame = false
+bufferline = "never"
+cursor-color = {normal = "#fff", insert = "#fff", select = "#fff"}
+whitespace = "none"
+
+[editor.status-bar-modes]
+normal = { text = " ", fg = "", bg = ""}
+insert = { text = "-- INSERT --", fg = "", bg = ""}
+select = { text = "-- VISUAL --", fg = "", bg = ""}
+
+[editor.status-bar-style]
+git = { align = "right",}
+
+[notifications]
+save = "status-bar"
+config = ["warn", "error"]
+hyper = ["warn", "error"]
+lsp = ["warn","error"]
+reload = ["off"]
+
+[keybinds]
+command-palette = "ctrl+p"
+pane-command-line = "ctrl+;"
+help = "f1"
+window.focus-left = ["ctrl+h", "h"]
+window.focus-right = ["ctrl+l", "l"]
+window.focus-up = ["ctrl+k", "k"]
+window.focus-down = ["ctrl+j", "j"]
+window.zoom = "ctrl+shift+f"
+helix.move-lines-down = "ctrl+alt+j"
+helix.move-lines-up = "ctrl+alt+k"
+helix.goto-next-paragraph = "}"
+helix.goto-prev-paragraph = "{"
+helix.delete-selection-noyank = "d"
+helix.delete-selection = "D"
+helix.split-selection = ""
+helix.changed-file-picker = "space g g"
+helix.to-uppercase = "~"
+
+crush.next-change = ""
+crush.previous-change = ""
+
+[aliases]
+t = "tree"
+
+[terminal]
+shell = ["ash"]
+
+[layout]
+commands = ["crush", "size 30", "wincmd h"]
+zoom-and-enhance = true
+
+[mappings]
+"space q" = "wqa"
+"tab" = "bn"
+"shift+tab" = "bp"
+"space t t" = "problems"
+
+[file-tree]
+show-hidden=true
+position = "float"
+icon-color = "#fff"
+ignore = [".claude", ".crush", ".git", ".DS_Store"]
+
+[languages.go]
+icon = "\udb81\udfd3"
+
+[languages.lua]
+indent = "spaces"
+
+[debug.go]
+adapter = ["dlv", "dap", "--listen={addr}"]   
+launch = { request = "launch", mode = "debug", program = "{dir}"}
+
+[ai]
+enabled = true
+theme = true
+edits = "ask"
+yolo_review = false
+follow_pane = false
+follow = false
+
+[lua]
+paths = ["~/work/plugins"]
+
+[remote]
+lsp = "host"
+crush = "host"
+
+[[projects]]
+name = "SuperJoy🌃"
+path = "~/work/superjoy"
+
+[[projects]]
+name = "Crush🩷"
+path = "~/work/crush"
+
+[[projects]]
+name = "Bubbletea🧋"
+path = "~/work/bubbletea"
+
+[[projects]]
+name = "Home"
+path = "/ssh:server.andrinoff.com/~/github/home"

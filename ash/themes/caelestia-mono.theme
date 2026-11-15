@@ -1,0 +1,52 @@
+# name: 'Caelestia Mono'
+# preferred_background: 111111
+#
+# Greyscale syntax + pager colours for the Arch/Hyprland/Caelestia rice.
+# Black/white/grey only: hierarchy comes from weight, not hue.
+# No [light]/[dark] sections on purpose, so the same greys apply whatever the
+# terminal reports. Chosen at startup by ~/.config/fish/conf.d/caelestia.fish.
+
+# command line
+fish_color_normal e2e2e2
+fish_color_command ffffff --bold
+fish_color_builtin ffffff --bold
+fish_color_function ffffff --bold
+fish_color_keyword ffffff --bold
+fish_color_param c8c8c8
+fish_color_option c8c8c8
+fish_color_quote a3a3a3
+fish_color_redirection ffffff
+fish_color_operator ffffff
+fish_color_end a3a3a3
+fish_color_escape a3a3a3 --bold
+fish_color_comment 6b6b6b --italics
+fish_color_error c8c8c8 --underline
+fish_color_autosuggestion 5e5e5e
+fish_color_valid_path --underline
+fish_color_cancel 6b6b6b
+fish_color_selection ffffff --bold --background=3a3a3a
+fish_color_search_match ffffff --background=2a2a2a
+fish_color_history_current ffffff --bold
+
+# used by fish's own prompt helpers (starship draws the real prompt)
+fish_color_cwd ffffff
+fish_color_cwd_root ffffff --bold --underline
+fish_color_user c8c8c8
+fish_color_host c8c8c8
+fish_color_host_remote ffffff --bold
+fish_color_status c8c8c8
+
+# completion pager
+fish_pager_color_progress 6b6b6b --italics
+fish_pager_color_background
+fish_pager_color_prefix ffffff --bold --underline
+fish_pager_color_completion c8c8c8
+fish_pager_color_description 6b6b6b --italics
+fish_pager_color_secondary_background
+fish_pager_color_secondary_prefix ffffff --bold --underline
+fish_pager_color_secondary_completion a3a3a3
+fish_pager_color_secondary_description 5e5e5e --italics
+fish_pager_color_selected_background --background=3a3a3a
+fish_pager_color_selected_prefix ffffff --bold --underline
+fish_pager_color_selected_completion ffffff --bold
+fish_pager_color_selected_description a3a3a3

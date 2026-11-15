@@ -1,0 +1,22 @@
+{
+  "accounts": [
+    {
+      "id": "08afee7c-5384-40e9-934d-5d9e1c33c716",
+      "name": "Drew Smirnoff",
+      "email": "me@andrinoff.com",
+      "service_provider": "icloud",
+      "fetch_email": "me@andrinoff.com",
+      "catch_all": true,
+      "auth_method": "password",
+      "protocol": "imap",
+      "pop3_port": 995
+    }
+  ],
+  "hide_tips": true,
+  "enable_split_pane": true,
+  "split_pane_orientation": "vertical",
+  "theme": "Lavender",
+  "date_format": "DD/MM/YYYY HH:MM",
+  "has_seen_setup_guide": true,
+  "mouse_enabled": true
+}

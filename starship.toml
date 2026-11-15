@@ -1,0 +1,370 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  starship.toml · monochrome, two lines, Nerd Font glyphs
+#
+#  line 1  context on the left ─── last command + machine state on the right
+#  line 2  the prompt
+#
+#  No colours at all: hierarchy comes from bold / normal / italic / dimmed,
+#  and "inverted" is reserved for things that need your attention.
+#  Follows your terminal's own foreground, so it works on dark and light.
+#
+#  Needs: a Nerd Font (v3+) and starship >= 1.20    ->  ~/.config/starship.toml
+# ─────────────────────────────────────────────────────────────────────────────
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+[╭─](fg:#3a3a3a)$os$username$hostname$container$directory\
+$git_branch${custom.upstream}$git_commit$git_state$git_status$git_metrics\
+$package\
+$bun$c$cmake$cobol$crystal$dart$deno$dotnet$elixir$elm$erlang$fennel\
+$fortran$gleam$golang$gradle$haskell$haxe$helm$java$julia$kotlin$lua$maven\
+$nim$nodejs$ocaml$odin$opa$perl$php$purescript$raku$red$rlang$ruby$rust\
+$scala$solidity$swift$typst$vlang$xmake$zig\
+$python$conda$nix_shell$direnv\
+$docker_context$kubernetes$terraform$aws\
+$fill\
+$status$cmd_duration${custom.mail}$memory_usage$battery$time\
+$line_break\
+[╰─](fg:#3a3a3a)$jobs$shlvl$sudo$character"""
+
+add_newline = true            # blank line between commands
+command_timeout = 1000        # ms; keeps slow toolchains from stalling the prompt
+continuation_prompt = '[❯❯](dimmed) '
+
+# ── toolchains ───────────────────────────────────────────────────────────────
+# Each appears only inside a project that uses it: icon + version, dimmed.
+bun        = { symbol = " ", style = "dimmed", version_format = "${raw}", format = '[$symbol($version)]($style) ' }
+c          = { symbol = " ", style = "dimmed", version_format = "${raw}", format = '[$symbol($version)]($style) ' }
+cmake      = { symbol = " ", style = "dimmed", version_format = "${raw}", format = '[$symbol($version)]($style) ' }
+cobol      = { symbol = " ", style = "dimmed", version_format = "${raw}", format = '[$symbol($version)]($style) ' }
+crystal    = { symbol = " ", style = "dimmed", version_format = "${raw}", format = '[$symbol($version)]($style) ' }
+dart       = { symbol = " ", style = "dimmed", version_format = "${raw}", format = '[$symbol($version)]($style) ' }
+deno       = { symbol = " ", style = "dimmed", version_format = "${raw}", format = '[$symbol($version)]($style) ' }
+dotnet     = { symbol = " ", style = "dimmed", version_format = "${raw}", format = '[$symbol($version)]($style) ' }
+elixir     = { symbol = " ", style = "dimmed", version_format = "${raw}", format = '[$symbol($version)]($style) ' }
+elm        = { symbol = " ", style = "dimmed", version_format = "${raw}", format = '[$symbol($version)]($style) ' }
+erlang     = { symbol = " ", style = "dimmed", version_format = "${raw}", format = '[$symbol($version)]($style) ' }
+fennel     = { symbol = " ", style = "dimmed", version_format = "${raw}", format = '[$symbol($version)]($style) ' }
+fortran    = { symbol = " ", style = "dimmed", version_format = "${raw}", format = '[$symbol($version)]($style) ' }
+gleam      = { symbol = " ", style = "dimmed", version_format = "${raw}", format = '[$symbol($version)]($style) ' }
+golang     = { symbol = " ", style = "dimmed", version_format = "${raw}", format = '[$symbol($version)]($style) ' }
+gradle     = { symbol = " ", style = "dimmed", version_format = "${raw}", format = '[$symbol($version)]($style) ' }
+haskell    = { symbol = " ", style = "dimmed", version_format = "${raw}", format = '[$symbol($version)]($style) ' }
+haxe       = { symbol = " ", style = "dimmed", version_format = "${raw}", format = '[$symbol($version)]($style) ' }
+helm       = { symbol = " ", style = "dimmed", version_format = "${raw}", format = '[$symbol($version)]($style) ' }
+java       = { symbol = " ", style = "dimmed", version_format = "${raw}", format = '[$symbol($version)]($style) ' }
+julia      = { symbol = " ", style = "dimmed", version_format = "${raw}", format = '[$symbol($version)]($style) ' }
+kotlin     = { symbol = " ", style = "dimmed", version_format = "${raw}", format = '[$symbol($version)]($style) ' }
+lua        = { symbol = " ", style = "dimmed", version_format = "${raw}", format = '[$symbol($version)]($style) ' }
+maven      = { symbol = " ", style = "dimmed", version_format = "${raw}", format = '[$symbol($version)]($style) ' }
+nim        = { symbol = " ", style = "dimmed", version_format = "${raw}", format = '[$symbol($version)]($style) ' }
+nodejs     = { symbol = " ", style = "dimmed", version_format = "${raw}", format = '[$symbol($version)]($style) ' }
+ocaml      = { symbol = " ", style = "dimmed", version_format = "${raw}", format = '[$symbol($version)]($style) ' }
+odin       = { symbol = "󰟢 ", style = "dimmed", format = '[$symbol($version)]($style) ' }
+opa        = { symbol = " ", style = "dimmed", version_format = "${raw}", format = '[$symbol($version)]($style) ' }
+perl       = { symbol = " ", style = "dimmed", version_format = "${raw}", format = '[$symbol($version)]($style) ' }
+php        = { symbol = " ", style = "dimmed", version_format = "${raw}", format = '[$symbol($version)]($style) ' }
+purescript = { symbol = " ", style = "dimmed", version_format = "${raw}", format = '[$symbol($version)]($style) ' }
+raku       = { symbol = "󱖊 ", style = "dimmed", version_format = "${raw}", format = '[$symbol($version)]($style) ' }
+red        = { symbol = "󱍼 ", style = "dimmed", version_format = "${raw}", format = '[$symbol($version)]($style) ' }
+rlang      = { symbol = "󰟔 ", style = "dimmed", version_format = "${raw}", format = '[$symbol($version)]($style) ' }
+ruby       = { symbol = " ", style = "dimmed", version_format = "${raw}", format = '[$symbol($version)]($style) ' }
+rust       = { symbol = "󱘗 ", style = "dimmed", version_format = "${raw}", format = '[$symbol($version)]($style) ' }
+scala      = { symbol = " ", style = "dimmed", version_format = "${raw}", format = '[$symbol($version)]($style) ' }
+solidity   = { symbol = " ", style = "dimmed", version_format = "${raw}", format = '[$symbol($version)]($style) ' }
+swift      = { symbol = " ", style = "dimmed", version_format = "${raw}", format = '[$symbol($version)]($style) ' }
+typst      = { symbol = " ", style = "dimmed", version_format = "${raw}", format = '[$symbol($version)]($style) ' }
+vlang      = { symbol = " ", style = "dimmed", version_format = "${raw}", format = '[$symbol($version)]($style) ' }
+xmake      = { symbol = " ", style = "dimmed", version_format = "${raw}", format = '[$symbol($version)]($style) ' }
+zig        = { symbol = " ", style = "dimmed", version_format = "${raw}", format = '[$symbol($version)]($style) ' }
+
+# ── line 1, left: where am I ─────────────────────────────────────────────────
+[os]                          # rounded pill caps (U+E0B6 / U+E0B4), Caelestia-style
+disabled = false
+format = '[](fg:#2a2a2a)[$symbol](fg:#ffffff bg:#2a2a2a)'
+
+[username]                    # hidden unless root or over SSH
+style_user = "bold fg:#ffffff bg:#2a2a2a"
+style_root = "bold fg:#000000 bg:#ffffff"
+format = '[$user ]($style)'
+
+[hostname]                    # hidden unless over SSH
+ssh_only = true
+ssh_symbol = " "
+style = "bold fg:#ffffff bg:#2a2a2a"
+format = '[$ssh_symbol$hostname ]($style)'
+
+[container]
+symbol = " "
+style = "italic fg:#a3a3a3 bg:#2a2a2a"
+format = '[$symbol$name ]($style)'
+
+[directory]                   # the main pill: os glyph + path
+style = "bold fg:#ffffff bg:#2a2a2a"
+before_repo_root_style = "fg:#6b6b6b bg:#2a2a2a"      # path above the repo fades out
+repo_root_style = "bold underline fg:#ffffff bg:#2a2a2a"  # repo name stands out
+read_only = " 󰌾"
+read_only_style = "fg:#6b6b6b bg:#2a2a2a"
+truncation_length = 4
+truncation_symbol = "…/"
+truncate_to_repo = false
+format = '[$path]($style)[$read_only]($read_only_style)[](fg:#2a2a2a) '
+repo_root_format = '[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style)[](fg:#2a2a2a) '
+
+[directory.substitutions]     # familiar roots get a glyph instead of their path
+"~/work" = "󰃖 work"
+"~/github" = " github"
+"~/.config" = " config"
+
+# ── git ──────────────────────────────────────────────────────────────────────
+[git_branch]                  # second pill; status and counts follow it as plain text
+symbol = " "
+format = '[](fg:#1c1c1c)[$symbol$branch(:$remote_branch)](fg:#c8c8c8 bg:#1c1c1c)[](fg:#1c1c1c) '
+truncation_length = 32
+truncation_symbol = "…"
+
+[git_commit]                  # detached HEAD, or sitting on a tag
+style = "dimmed"
+tag_disabled = false
+tag_symbol = "  "
+format = '[ $hash$tag]($style) '
+
+[git_state]                   # rebase / merge / cherry-pick / bisect in progress
+style = "bold inverted"
+format = '[ $state( $progress_current/$progress_total) ]($style) '
+
+[git_status]
+style = "bold"
+format = '([$ahead_behind$conflicted$staged$modified$renamed$deleted$untracked$stashed]($style) )'
+ahead      = "⇡${count}"
+behind     = "⇣${count}"
+diverged   = "⇡${ahead_count}⇣${behind_count}"
+conflicted = "≠${count}"
+staged     = "+${count}"
+modified   = "!${count}"
+renamed    = "»${count}"
+deleted    = "✘${count}"
+untracked  = "?${count}"
+stashed    = "≡${count}"
+
+[git_metrics]                 # lines added / removed in the working tree
+disabled = false
+added_style = ""
+deleted_style = "dimmed"
+format = '([+$added]($added_style))([-$deleted]($deleted_style)) '
+
+[custom.upstream]             # branch that has never been pushed
+description = "Current branch has no upstream yet"
+require_repo = true
+when = 'git symbolic-ref -q HEAD >/dev/null && ! git rev-parse -q --verify "@{u}" >/dev/null 2>&1'
+shell = ["sh"]
+symbol = "󰅗 "
+style = "dimmed italic"
+format = '[${symbol}local]($style) '
+
+# ── project + environments ───────────────────────────────────────────────────
+[package]
+symbol = "󰏗 "
+style = "dimmed"
+version_format = "${raw}"
+format = '[$symbol$version]($style) '
+
+[python]
+symbol = " "
+style = "dimmed"
+version_format = "${raw}"
+format = '[$symbol$pyenv_prefix($version)]($style)[( \($virtualenv\))](italic) '
+
+[conda]
+symbol = " "
+style = "italic"
+ignore_base = true
+format = '[$symbol$environment]($style) '
+
+[nix_shell]
+symbol = " "
+style = "italic"
+format = '[$symbol$state( \($name\))]($style) '
+
+[direnv]                      # only where an .envrc applies
+disabled = false
+symbol = " "
+style = "italic"
+format = '[$symbol$loaded/$allowed]($style) '
+
+[docker_context]              # only next to a Dockerfile / compose file
+symbol = " "
+style = "italic"
+format = '[$symbol$context]($style) '
+
+[kubernetes]                  # only inside k8s-looking projects, not everywhere
+disabled = false
+symbol = "󱃾 "
+style = "italic"
+detect_files = ['Chart.yaml', 'kustomization.yaml', 'helmfile.yaml', 'skaffold.yaml', 'Tiltfile']
+detect_folders = ['k8s', 'kubernetes', 'manifests', 'charts']
+format = '[$symbol$context( \($namespace\))]($style) '
+
+[terraform]
+symbol = " "
+style = "italic"
+format = '[$symbol$workspace]($style) '
+
+[aws]
+symbol = " "
+style = "italic"
+format = '[$symbol($profile)( \($region\))( \[$duration\])]($style) '
+
+# ── line 1, right: what just happened ────────────────────────────────────────
+[fill]
+symbol = "─"                  # set to " " for an empty gap instead of a rule
+style = "fg:#3a3a3a"
+
+[status]                      # exit code of the last command, only on failure
+disabled = false
+style = "bold inverted"
+symbol = " "
+not_executable_symbol = " "
+not_found_symbol = " "
+sigint_symbol = " "
+signal_symbol = " "
+map_symbol = true
+pipestatus = true
+pipestatus_separator = "|"
+pipestatus_segment_format = '$status'
+pipestatus_format = ' [](fg:#ffffff)[$symbol$pipestatus](bold fg:#000000 bg:#ffffff)[](fg:#ffffff)'
+format = ' [](fg:#ffffff)[$symbol$status( $common_meaning)( SIG$signal_name)](bold fg:#000000 bg:#ffffff)[](fg:#ffffff)'
+
+[cmd_duration]
+min_time = 2000
+style = ""
+format = ' [ $duration]($style)'
+
+# ── from the bar ─────────────────────────────────────────────────────────────
+# sketchybar keeps ~/.config/lockscreen/data.js current; reading that one small
+# file keeps this cheap. Empty output = hidden.
+
+[custom.mail]                 # matcha unread, only when there is some
+description = "Unread mail"
+when = true
+shell = ["sh"]
+command = '''sed '1s/^window.LOCK = //' ~/.config/lockscreen/data.js 2>/dev/null | jq -r 'select(.mail > 0) | .mail' 2>/dev/null'''
+symbol = "󰇮 "
+style = "bold"
+format = '( [$symbol$output]($style))'
+
+[memory_usage]                # only when RAM is actually under pressure
+disabled = false
+threshold = 80
+symbol = "󰍛 "
+style = "bold"
+format = ' [$symbol$ram_pct]($style)'
+
+[battery]
+full_symbol = "󰁹 "
+charging_symbol = "󰂄 "
+discharging_symbol = "󰂃 "
+unknown_symbol = "󰂑 "
+empty_symbol = "󰂎 "
+format = ' [$symbol$percentage]($style)'
+
+[[battery.display]]           # critical
+threshold = 10
+style = "bold inverted"
+
+[[battery.display]]           # low; above 30% the module stays hidden
+threshold = 30
+style = "bold"
+
+[time]                        # doubles as a timestamp in your scrollback
+disabled = false
+time_format = "%H:%M:%S"
+format = ' [](fg:#1c1c1c)[ $time](fg:#6b6b6b bg:#1c1c1c)[](fg:#1c1c1c)'
+
+# ── line 2: the prompt ───────────────────────────────────────────────────────
+[jobs]                        # background jobs
+symbol = " "
+style = "bold"
+number_threshold = 1
+format = '[$symbol$number]($style) '
+
+[shlvl]                       # nested shells; tmux users may want threshold = 3
+disabled = false
+threshold = 2
+symbol = "󰹍 "
+style = "dimmed"
+format = '[$symbol$shlvl]($style) '
+
+[sudo]                        # sudo credentials are currently cached
+disabled = false
+symbol = " "
+style = "bold"
+format = '[$symbol]($style)'
+
+[character]
+success_symbol = '[❯](bold)'
+error_symbol = '[❯](dimmed)'
+vimcmd_symbol = '[❮](bold)'
+vimcmd_visual_symbol = '[❮](bold underline)'
+vimcmd_replace_symbol = '[❮](bold inverted)'
+vimcmd_replace_one_symbol = '[❮](bold inverted)'
+
+[os.symbols]
+AIX = " "
+AlmaLinux = " "
+Alpaquita = " "
+Alpine = " "
+ALTLinux = " "
+Amazon = " "
+Android = " "
+AOSC = " "
+Arch = " "
+Artix = " "
+Bluefin = " "
+CachyOS = " "
+CentOS = " "
+Debian = " "
+DragonFly = " "
+Elementary = " "
+Emscripten = " "
+EndeavourOS = " "
+Fedora = " "
+FreeBSD = " "
+Garuda = " "
+Gentoo = " "
+HardenedBSD = "󰞌 "
+Illumos = " "
+InstantOS = " "
+Ios = "󰀷 "
+Kali = " "
+Linux = " "
+Mabox = " "
+Macos = " "
+Manjaro = " "
+Mariner = " "
+MidnightBSD = " "
+Mint = " "
+NetBSD = " "
+NixOS = " "
+Nobara = " "
+OpenBSD = " "
+OpenCloudOS = " "
+openEuler = " "
+openSUSE = " "
+OracleLinux = "󰺡 "
+PikaOS = " "
+Pop = " "
+Raspbian = " "
+Redhat = "󱄛 "
+RedHatEnterprise = "󱄛 "
+Redox = "󰀘 "
+RockyLinux = " "
+Solus = " "
+SUSE = " "
+Ubuntu = " "
+Ultramarine = " "
+Unknown = " "
+Uos = " "
+Void = " "
+Windows = "󰍲 "
+Zorin = " "

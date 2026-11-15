@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+# ---------------------------------------------
+# tmux-status 
+#------------------------------------------------------------------------------------------
+
+case $1 in
+git)
+    cd "$2" 2>/dev/null || exit 0
+    branch=$(git symbolic-ref --short -q HEAD 2>/dev/null || git rev-parse --short HEAD 2>/dev/null) || exit 0
+    [[ -z $branch ]] && exit 0
+
+    ((${#branch} > 30)) && branch="${branch:0:29}…"   # keep long branch names short
+    out=$branch
+    [[ -n $(git status --porcelain --ignore-submodules 2>/dev/null | head -n1) ]] && out+="*"
+
+    if counts=$(git rev-list --left-right --count '@{upstream}...HEAD' 2>/dev/null); then
+        read -r behind ahead <<<"$counts"
+        ((ahead > 0)) && out+="↑$ahead"
+        ((behind > 0)) && out+="↓$behind"
+    fi
+    printf '  %s' "$out"
+    ;;
+battery)
+    info=$(pmset -g batt 2>/dev/null) || exit 0
+    pct=$(grep -Eo '[0-9]+%' <<<"$info" | head -n1)
+    [[ -z $pct ]] && exit 0
+    if grep -q "AC Power" <<<"$info"; then
+        [[ $pct == 100% ]] || grep -q "charged" <<<"$info" || printf '  %s+' "$pct"
+    else
+        printf '  %s' "$pct"
+    fi
+    ;;
+esac
