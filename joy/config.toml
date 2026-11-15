@@ -50,7 +50,6 @@ reload = ["off"]
 [keybinds]
 command-palette = "ctrl+p"
 pane-command-line = "ctrl+;"
-help = "f1"
 window.focus-left = ["ctrl+h", "h"]
 window.focus-right = ["ctrl+l", "l"]
 window.focus-up = ["ctrl+k", "k"]
@@ -64,7 +63,6 @@ helix.delete-selection-noyank = "d"
 helix.delete-selection = "D"
 helix.split-selection = ""
 helix.changed-file-picker = "space g g"
-helix.to-uppercase = "~"
 
 crush.next-change = ""
 crush.previous-change = ""
