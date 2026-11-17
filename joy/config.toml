@@ -43,7 +43,7 @@ git = { align = "right",}
 [notifications]
 save = "status-bar"
 config = ["warn", "error"]
-hyper = ["warn", "error"]
+# hyper = ["warn", "error"]
 lsp = ["warn","error"]
 reload = ["off"]
 
@@ -101,6 +101,7 @@ launch = { request = "launch", mode = "debug", program = "{dir}"}
 
 [ai]
 enabled = true
+# edit_completions = false
 theme = true
 edits = "ask"
 yolo_review = false

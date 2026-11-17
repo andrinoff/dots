@@ -14,9 +14,9 @@ background-opacity = 0.7
 background = #000000
 
 # --- Font & Terminal ---
-font-family = "Iosevka"
+font-family = "MonoLisa"
 font-size = 15
-font-thicken = true
+# font-thicken = true
 font-feature = calt
 font-feature = liga
 font-feature = dlig
@@ -95,8 +95,8 @@ keybind = ctrl+digit_6=text:\x1b[54;5u
 keybind = ctrl+digit_7=text:\x1b[55;5u
 keybind = ctrl+digit_8=text:\x1b[56;5u
 keybind = ctrl+digit_9=text:\x1b[57;5u
-keybind = ctrl+period=text:\x1b[46;5u
-keybind = ctrl+comma=text:\x1b[44;5u
-keybind = ctrl+semicolon=text:\x1b[59;5u
-keybind = ctrl+quote=text:\x1b[39;5u
-keybind = ctrl+equal=text:\x1b[61;5u
+keybind = ctrl+.=text:\x1b[46;5u
+keybind = ctrl+,=text:\x1b[44;5u
+keybind = ctrl+;=text:\x1b[59;5u
+keybind = ctrl+'=text:\x1b[39;5u
+keybind = ctrl+==text:\x1b[61;5u
