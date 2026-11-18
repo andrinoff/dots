@@ -89,6 +89,9 @@ position = "float"
 icon-color = "#fff"
 ignore = [".claude", ".crush", ".git", ".DS_Store"]
 
+[formatters]
+md = ["prettier", "--prose-wrap", "always", "--stdin-filepath", "{path}"]
+
 [languages.go]
 icon = "\udb81\udfd3"
 

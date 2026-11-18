@@ -14,9 +14,9 @@ background-opacity = 0.7
 background = #000000
 
 # --- Font & Terminal ---
-font-family = "MonoLisa"
+font-family = "PragmataPro Mono Liga"
 font-size = 15
-# font-thicken = true
+font-thicken = true
 font-feature = calt
 font-feature = liga
 font-feature = dlig
