@@ -31,6 +31,8 @@ git-blame = false
 bufferline = "never"
 cursor-color = {normal = "#fff", insert = "#fff", select = "#fff"}
 whitespace = "none"
+hide-secrets = true
+match-brackets = false
 
 [editor.status-bar-modes]
 normal = { text = " ", fg = "", bg = ""}

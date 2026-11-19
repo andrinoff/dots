@@ -7,23 +7,23 @@ window-decoration = false
 macos-titlebar-style = hidden
 
 # --- Theme ---
-theme = rose pine
+theme = Builtin Dark
 
 # --- Background & Transparency ---
 background-opacity = 0.7
 background = #000000
 
 # --- Font & Terminal ---
-font-family = "PragmataPro Mono Liga"
+font-family = "Lilex"
 font-size = 15
 font-thicken = true
 font-feature = calt
 font-feature = liga
 font-feature = dlig
 adjust-cell-height = 0%
-#font-style = Book
-#font-style-bold = Bold
-#font-style-italic = Book Italic
+# font-style = Book
+# font-style-bold = Bold
+# font-style-italic = Book Italic
 
 
 # --- Shell and the term ---
