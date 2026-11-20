@@ -7,20 +7,20 @@ window-decoration = false
 macos-titlebar-style = hidden
 
 # --- Theme ---
-theme = Builtin Dark
+theme = voltage
 
 # --- Background & Transparency ---
-background-opacity = 0.7
-background = #000000
+background = #000
+background-opacity = 0.82
 
 # --- Font & Terminal ---
-font-family = "Lilex"
+font-family = "Fira Code"
 font-size = 15
 font-thicken = true
 font-feature = calt
 font-feature = liga
 font-feature = dlig
-adjust-cell-height = 0%
+adjust-cell-height = -20%
 # font-style = Book
 # font-style-bold = Bold
 # font-style-italic = Book Italic
@@ -32,6 +32,7 @@ term = ghostty
 
 # --- Cursor ---
 cursor-style = block
+cursor-style-blink = false
 shell-integration-features = no-cursor
 
 # --- MacOS Specifics ---
@@ -43,8 +44,8 @@ scrollback-limit = 10000
 
 # --- Splits (but i use tmux instead) ---
 unfocused-split-opacity = 0.85
-unfocused-split-fill = #1d1f21
-split-divider-color = #373b41
+unfocused-split-fill = #0b0a14
+split-divider-color = #c43bff
 
 
 # --- Padding ---

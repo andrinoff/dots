@@ -32,7 +32,8 @@ bufferline = "never"
 cursor-color = {normal = "#fff", insert = "#fff", select = "#fff"}
 whitespace = "none"
 hide-secrets = true
-match-brackets = false
+match-brackets = true
+square-borders = true
 
 [editor.status-bar-modes]
 normal = { text = " ", fg = "", bg = ""}
@@ -45,7 +46,7 @@ git = { align = "right",}
 [notifications]
 save = "status-bar"
 config = ["warn", "error"]
-# hyper = ["warn", "error"]
+hyper = ["warn", "error"]
 lsp = ["warn","error"]
 reload = ["off"]
 
@@ -115,6 +116,7 @@ follow = false
 
 [lua]
 paths = ["~/work/plugins"]
+disabled = ["loam"]
 
 [remote]
 lsp = "host"

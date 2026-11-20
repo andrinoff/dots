@@ -1,0 +1,34 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  voltage · a saturated neon palette for Ghostty
+#
+#  Deep ink-blue background, every hue pushed close to full saturation.
+#  Bright variants (8–15) are lighter, not paler, so they still pop.
+#  Matching pieces: ~/.config/ash/themes/voltage.theme, starship palette.
+# ─────────────────────────────────────────────────────────────────────────────
+
+background = #0b0a14
+foreground = #e8e6ff
+cursor-color = #ffffff
+cursor-text = #0b0a14
+selection-background = #3b1f6e
+selection-foreground = #ffffff
+
+# normal
+palette = 0=#1a1828
+palette = 1=#ff2a55
+palette = 2=#1fff8a
+palette = 3=#ffd400
+palette = 4=#2f7bff
+palette = 5=#c43bff
+palette = 6=#00e1ff
+palette = 7=#cfcbea
+
+# bright
+palette = 8=#5a5480
+palette = 9=#ff5c80
+palette = 10=#6bffb3
+palette = 11=#ffe74d
+palette = 12=#6aa3ff
+palette = 13=#e07bff
+palette = 14=#5cefff
+palette = 15=#ffffff

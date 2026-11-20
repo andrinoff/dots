@@ -20,13 +20,13 @@ format = "$symbol"
 truncation_length = 1
 truncate_to_repo = false
 home_symbol = "~"
-style = "bold cyan"
+style = "fg:#00ff00"        # project: pure green
 read_only = ""
 format = "[$path]($style) "
 
 [git_branch]
 symbol = ""
-format = "[git:\\(](bold blue)[$branch](bold red)[\\)](bold blue) "
+format = "[git:\\(](fg:#00bfff)[$branch](bold red)[\\)](fg:#00bfff) "
 
 [custom.dirty]               # what robbyrussell asks: anything in git status
 when = 'test -n "$(git status --porcelain --ignore-submodules=dirty 2>/dev/null | head -n 1)"'

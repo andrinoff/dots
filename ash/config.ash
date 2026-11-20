@@ -2,15 +2,23 @@
 # ASH config
 # ----------------------------------------------
 
+# --- Paths ───
+# first one wins (Homebrew comes first so go is found for the line below)
+add_path -m /opt/homebrew/bin /opt/homebrew/sbin
+add_path -m ~/.local/bin ~/bin ~/local/bin \
+    (cached command go env GOPATH)/bin ~/.cargo/bin \
+    /Applications/Postgres.app/Contents/Versions/18/bin
+
 # --- Environment ───
 set -gx EDITOR joy
 set -gx HYPER_URL https://hyper.charmcli.dev
 set -gx BAT_THEME ink
 set -gx EZA_CONFIG_DIR ~/.config/eza
 set -gx FZF_DEFAULT_OPTS "--height=40% --layout=reverse --border=rounded --info=inline \
---color=fg:#c8c8c8,bg:-1,hl:#ffffff:bold,fg+:#ffffff,bg+:#242424,hl+:#ffffff:bold \
---color=border:#3a3a3a,header:#a3a3a3,info:#6b6b6b,marker:#ffffff,pointer:#ffffff \
---color=prompt:#ffffff,spinner:#a3a3a3,separator:#242424,scrollbar:#3a3a3a"
+--prompt='❯ ' --pointer='▶' --marker='✚' \
+--color=fg:#cfcbea,bg:-1,hl:#ff2e97:bold,fg+:#ffffff,bg+:#2a1f4a,hl+:#ff2e97:bold \
+--color=border:#c43bff,header:#00e1ff,info:#ffd400,marker:#1fff8a,pointer:#ff2e97 \
+--color=prompt:#c43bff,spinner:#00e1ff,separator:#2a2640,scrollbar:#c43bff,label:#ff2e97:bold"
 status is-interactive; or return
 set -gx GPG_TTY (tty)
 
@@ -18,21 +26,21 @@ set -gx GPG_TTY (tty)
 set -g ash_search_rows 12
 set -g ash_pager_rows 10
 # set -g ash_cursor line
-theme choose caelestia-mono
+theme choose voltage
 integrate starship
 enable_transience
 function starship_transient_prompt_func;  starship module directory; end
 function starship_transient_rprompt_func; starship module time;      end
 
-function prompt-lines -d 'use a one- or two-line prompt: prompt-lines 1|2'
-    set -q argv[1]; and set -U ash_prompt_lines $argv[1]
-    if test "$ash_prompt_lines" = 2
-        set -e STARSHIP_CONFIG
-    else
-        set -gx STARSHIP_CONFIG ~/.config/ash/starship.toml
-    end
-end
-prompt-lines
+# function prompt-lines -d 'use a one- or two-line prompt: prompt-lines 1|2'
+#     set -q argv[1]; and set -U ash_prompt_lines $argv[1]
+#     if test "$ash_prompt_lines" = 2
+#         set -e STARSHIP_CONFIG
+#     else
+#         set -gx STARSHIP_CONFIG ~/.config/ash/starship.toml
+#     end
+# end
+# prompt-lines
 
 # --- Tools ───
 set -g FZF_CTRL_R_COMMAND ''
