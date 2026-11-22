@@ -1,5 +1,5 @@
 [editor]
-theme = "rose-pine"
+theme = "nord"
 mode = "helix"
 high-fps = true
 smooth-scroll = false
@@ -13,7 +13,7 @@ minimap = false
 breadcrumbs = true
 sticky-scroll = true
 indent-scope = false
-inlay-hints = false
+inlay-hints = true
 status-bar = ["mode", "git", "notification"]
 background = false
 cursor-shape = { normal = "block", insert = "block", select = "underline"}
@@ -34,6 +34,7 @@ whitespace = "none"
 hide-secrets = true
 match-brackets = true
 square-borders = true
+completion-border = true
 
 [editor.status-bar-modes]
 normal = { text = " ", fg = "", bg = ""}
