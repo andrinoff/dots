@@ -14,13 +14,13 @@ background = #000
 background-opacity = 0.82
 
 # --- Font & Terminal ---
-font-family = "Fira Code"
+font-family = "MonoLisa"
 font-size = 15
 font-thicken = true
 font-feature = calt
 font-feature = liga
 font-feature = dlig
-adjust-cell-height = -20%
+adjust-cell-height = 0%
 # font-style = Book
 # font-style-bold = Bold
 # font-style-italic = Book Italic
