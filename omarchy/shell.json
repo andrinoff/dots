@@ -1,0 +1,130 @@
+{
+  "bar": {
+    "background": "glassy",
+    "layout": {
+      "center": [
+        {
+          "format": "h:mm AP",
+          "formatAlt": "d MMMM 'W'ww yyyy",
+          "id": "omarchy.clock",
+          "verticalFormat": "HH\n—\nmm"
+        }
+      ],
+      "centerBegin": [],
+      "centerEnd": [
+        {
+          "id": "omarchy.weather"
+        },
+        {
+          "cities": [
+            {
+              "name": "Tbilisi",
+              "zone": "Asia/Tbilisi"
+            },
+            {
+              "name": "Los Angeles",
+              "people": [
+                "@fablemodem"
+              ],
+              "zone": "America/Los_Angeles"
+            },
+            {
+              "name": "New York",
+              "people": [
+                "@meowgorithm"
+              ],
+              "zone": "America/New_York"
+            },
+            {
+              "lat": 32.61263,
+              "lon": -87.66945,
+              "name": "Cedarville",
+              "people": [
+                "@taciturnaxolotl"
+              ],
+              "region": "Alabama, US",
+              "zone": "America/Chicago"
+            }
+          ],
+          "id": "omarchy.elsewhen",
+          "units": "C"
+        }
+      ],
+      "left": [
+        {
+          "id": "andrinoff.workspaces"
+        },
+        {
+          "id": "omarchy.media"
+        },
+        {
+          "id": "omarchy.indicators"
+        },
+        {
+          "id": "omarchy.spacer",
+          "size": 16
+        }
+      ],
+      "right": [
+        {
+          "id": "omarchy.spacer",
+          "size": 20
+        },
+        {
+          "id": "omarchy.tray"
+        },
+        {
+          "defaultTop": "btop",
+          "id": "codesdilkhush.sysmon",
+          "showPercentage": true
+        },
+        {
+          "id": "omarchy.keyboard-layout"
+        },
+        {
+          "id": "omarchy.network"
+        },
+        {
+          "id": "omarchy.bluetooth"
+        },
+        {
+          "id": "omarchy.audio"
+        },
+        {
+          "id": "omarchy.power"
+        }
+      ],
+      "tray": [
+        {
+          "id": "omarchy.system-update"
+        },
+        {
+          "id": "omarchy.monitor"
+        },
+        {
+          "id": "superwhisper.panel"
+        }
+      ]
+    },
+    "position": "top"
+  },
+  "dock": {
+    "pinned": [
+      "folio",
+      "omarchy-browser",
+      "omarchy-terminal",
+      "omacalc",
+      "omawrite",
+      "hype",
+      "monologue",
+      "cliamp"
+    ],
+    "position": "bottom"
+  },
+  "idle": {
+    "lock": 300,
+    "screensaver": 150
+  },
+  "plugins": [],
+  "version": 1
+}

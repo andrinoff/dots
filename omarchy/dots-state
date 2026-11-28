@@ -1,0 +1,9 @@
+theme sketchbook
+icons papercraft
+background 01-tree.jpg
+repo omarchy/themes/midnight https://github.com/JaxonWright/omarchy-midnight-theme.git
+repo omarchy/themes/monochrome https://github.com/Swarnim114/omarchy-monochrome-theme
+repo omarchy/themes/nothing-dark https://github.com/xvvhang/omarchy-nothing-dark-theme
+repo omarchy/themes/onyx https://github.com/ggregoro/onyx
+repo omarchy/themes/rose-pine-dark https://github.com/guilhermetk/omarchy-rose-pine-dark
+repo omarchy/plugins/codesdilkhush.sysmon https://github.com/codesdilkhush/omarchy-sysmon.git

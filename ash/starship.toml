@@ -26,10 +26,10 @@ format = "[$path]($style) "
 
 [git_branch]
 symbol = ""
-format = "[git:\\(](fg:#00bfff)[$branch](bold red)[\\)](fg:#00bfff) "
+format = "[git:\\(](bold fg:#00bfff)[$branch](bold fg:#ff0000)[\\)](bold fg:#00bfff) "
 
 [custom.dirty]               # what robbyrussell asks: anything in git status
 when = 'test -n "$(git status --porcelain --ignore-submodules=dirty 2>/dev/null | head -n 1)"'
 require_repo = true
 shell = ["sh"]
-format = "[✗](bold yellow) "
+format = "[✗](bold fg:#ffff00) "

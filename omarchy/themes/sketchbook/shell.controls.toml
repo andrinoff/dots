@@ -1,0 +1,29 @@
+[controls]
+# Buttons, dropdowns and tabs are drawn as pen outlines, not filled pills.
+normal-color        = "#e4e4e4"
+normal-fill-alpha   = 0.0
+normal-border       = "#e4e4e4"
+normal-border-width = 1
+normal-border-alpha = 0.3
+
+hover-cursor-color        = "#ffffff"
+hover-cursor-fill-alpha   = 0.08
+hover-cursor-border       = "#ffffff"
+hover-cursor-border-width = 1
+hover-cursor-border-alpha = 0.8
+
+focus-color        = "#ffffff"
+focus-fill-alpha   = 0.08
+focus-border       = "#ffffff"
+focus-border-width = 1
+focus-border-alpha = 1.0
+
+# The chosen item gets boxed in, like circling an answer.
+selected-color        = "#ffffff"
+selected-fill-alpha   = 0.12
+selected-border       = "#ffffff"
+selected-border-width = 1
+selected-border-alpha = 1.0
+
+pressed-fill-alpha   = 0.22
+selection-fill-alpha = 0.35

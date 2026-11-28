@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "andrinoff.mark",
+  "name": "Invader mark",
+  "version": "1.0.0",
+  "author": "andrinoff",
+  "description": "Your space invader as the menu button; it marches while you hover",
+  "kinds": [
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "barWidget": "Mark.qml"
+  },
+  "barWidget": {
+    "displayName": "Invader mark",
+    "description": "Your space invader as the menu button; it marches while you hover",
+    "category": "Launchers",
+    "allowMultiple": false,
+    "defaultSection": "left"
+  }
+}

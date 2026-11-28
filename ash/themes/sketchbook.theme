@@ -1,0 +1,52 @@
+# name: 'Sketchbook'
+# preferred_background: 000000
+#
+# White pen on black paper. Weight and brightness carry the syntax; italics
+# (cursive Maple Mono in Ghostty) mark the pencil notes: strings, comments,
+# autosuggestions and descriptions. Red is only for mistakes.
+
+# command line
+fish_color_normal e4e4e4
+fish_color_command ffffff --bold
+fish_color_builtin ffffff --bold
+fish_color_function ffffff --bold
+fish_color_keyword ffffff --bold
+fish_color_param d0d0d0
+fish_color_option a3a3a3
+fish_color_quote bdbdbd --italics
+fish_color_redirection ffffff
+fish_color_operator ffffff
+fish_color_end 6b6b6b
+fish_color_escape ffffff --bold
+fish_color_variable e4e4e4 --underline
+fish_color_comment 6b6b6b --italics
+fish_color_error d96c6c --underline
+fish_color_autosuggestion 5c5c5c --italics
+fish_color_valid_path --underline
+fish_color_cancel 6b6b6b
+fish_color_selection 000000 --bold --background=e4e4e4
+fish_color_search_match ffffff --bold --background=262626
+fish_color_history_current ffffff --bold
+
+# used by fish's own prompt helpers (starship draws the real prompt)
+fish_color_cwd ffffff
+fish_color_cwd_root d96c6c --bold --underline
+fish_color_user a3a3a3
+fish_color_host a3a3a3
+fish_color_host_remote ffffff --bold
+fish_color_status d96c6c
+
+# completion pager: the selected row is inverted, like a highlighter stroke
+fish_pager_color_progress 6b6b6b --italics
+fish_pager_color_background
+fish_pager_color_prefix ffffff --bold --underline
+fish_pager_color_completion c4c4c4
+fish_pager_color_description 6b6b6b --italics
+fish_pager_color_secondary_background
+fish_pager_color_secondary_prefix ffffff --bold --underline
+fish_pager_color_secondary_completion a3a3a3
+fish_pager_color_secondary_description 5c5c5c --italics
+fish_pager_color_selected_background --background=e4e4e4
+fish_pager_color_selected_prefix 000000 --bold --underline
+fish_pager_color_selected_completion 000000 --bold
+fish_pager_color_selected_description 3a3a3a --italics

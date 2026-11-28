@@ -1,0 +1,9 @@
+# Sketchbook: white pen on black paper; no bg keeps the terminal's own black.
+# red is the spectrum's top and the favorite heart too, so it stays white;
+# errors keep their ERR: marker.
+accent = "#ffffff"
+bright_fg = "#e4e4e4"
+fg = "#6b6b6b"
+green = "#a3a3a3"
+yellow = "#e4e4e4"
+red = "#ffffff"

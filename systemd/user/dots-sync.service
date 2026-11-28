@@ -1,0 +1,6 @@
+[Unit]
+Description=Sync ~/.config with github.com/andrinoff/dots
+
+[Service]
+Type=oneshot
+ExecStart=%h/.config/dots-sync

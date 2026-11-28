@@ -4,7 +4,7 @@
 
 # --- Paths ───
 # first one wins (Homebrew comes first so go is found for the line below)
-add_path -m /opt/homebrew/bin /opt/homebrew/sbin
+add_path -m /usr/bin /usr/sbin
 add_path -m ~/.local/bin ~/bin ~/local/bin \
     (cached command go env GOPATH)/bin ~/.cargo/bin \
     /Applications/Postgres.app/Contents/Versions/18/bin
@@ -12,13 +12,13 @@ add_path -m ~/.local/bin ~/bin ~/local/bin \
 # --- Environment ───
 set -gx EDITOR joy
 set -gx HYPER_URL https://hyper.charmcli.dev
-set -gx BAT_THEME ink
+set -gx BAT_THEME sketchbook
 set -gx EZA_CONFIG_DIR ~/.config/eza
-set -gx FZF_DEFAULT_OPTS "--height=40% --layout=reverse --border=rounded --info=inline \
---prompt='❯ ' --pointer='▶' --marker='✚' \
---color=fg:#cfcbea,bg:-1,hl:#ff2e97:bold,fg+:#ffffff,bg+:#2a1f4a,hl+:#ff2e97:bold \
---color=border:#c43bff,header:#00e1ff,info:#ffd400,marker:#1fff8a,pointer:#ff2e97 \
---color=prompt:#c43bff,spinner:#00e1ff,separator:#2a2640,scrollbar:#c43bff,label:#ff2e97:bold"
+set -gx FZF_DEFAULT_OPTS "--height=40% --layout=reverse --border=sharp --info=inline-right \
+--prompt='› ' --pointer=' ' --marker='•' --separator='─' --scrollbar='│' \
+--color=fg:#a3a3a3,bg:-1,hl:#ffffff:bold:underline,fg+:#000000,bg+:#e4e4e4,hl+:#000000:bold:underline \
+--color=border:#3a3a3a,header:#6b6b6b:italic,info:#6b6b6b,marker:#ffffff,pointer:#000000,gutter:-1 \
+--color=prompt:#ffffff,query:#ffffff,spinner:#a3a3a3,separator:#262626,scrollbar:#3a3a3a,label:#ffffff:bold"
 status is-interactive; or return
 set -gx GPG_TTY (tty)
 
@@ -26,7 +26,8 @@ set -gx GPG_TTY (tty)
 set -g ash_search_rows 12
 set -g ash_pager_rows 10
 # set -g ash_cursor line
-theme choose voltage
+theme choose sketchbook
+set -gx STARSHIP_CONFIG ~/.config/ash/starship.toml   # ThePrimeagen's robbyrussell prompt
 integrate starship
 enable_transience
 function starship_transient_prompt_func;  starship module directory; end

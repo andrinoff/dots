@@ -6,34 +6,61 @@
 window-decoration = false
 macos-titlebar-style = hidden
 
-# --- Theme ---
-theme = voltage
+# --- Colors (fixed: Omarchy themes don't touch the terminal palette) ---
+background = #000000
+foreground = #ffffff
+cursor-color = #ffffff
+cursor-text = #000000
+selection-background = #ffffff
+selection-foreground = #000000
+
+# Pure ANSI colors; 8 is grey so dimmed text stays readable
+palette = 0=#000000
+palette = 1=#ff0000
+palette = 2=#00ff00
+palette = 3=#ffff00
+palette = 4=#0000ff
+palette = 5=#ff00ff
+palette = 6=#00ffff
+palette = 7=#ffffff
+palette = 8=#808080
+palette = 9=#ff0000
+palette = 10=#00ff00
+palette = 11=#ffff00
+palette = 12=#0000ff
+palette = 13=#ff00ff
+palette = 14=#00ffff
+palette = 15=#ffffff
 
 # --- Background & Transparency ---
-background = #000
-background-opacity = 0.82
+background-opacity = 0.85
 
 # --- Font & Terminal ---
 font-family = "Fira Code"
-font-size = 10
+font-size = 11
 font-thicken = true
 font-feature = calt
 font-feature = liga
 font-feature = dlig
-adjust-cell-height = -10%
+adjust-cell-height = 0%
+# Italics (comments, hints) in Maple Mono's cursive, like notes in the margin
+font-family-italic = "Maple Mono NF"
+font-family-bold-italic = "Maple Mono NF"
 # font-style = Book
 # font-style-bold = Bold
 # font-style-italic = Book Italic
 
 
 # --- Shell and the term ---
-command = /Users/andrinoff/go/bin/ash
+command = /home/andrinoff/go/bin/ash
 term = ghostty
 
 # --- Cursor ---
 cursor-style = block
 cursor-style-blink = false
 shell-integration-features = no-cursor
+# The cursor drags a short stroke of ink when it jumps
+# custom-shader = /home/andrinoff/.config/ghostty/shaders/ink-trail.glsl
 
 # --- MacOS Specifics ---
 macos-option-as-alt = left
@@ -44,11 +71,13 @@ scrollback-limit = 10000
 
 # --- Splits (but i use tmux instead) ---
 unfocused-split-opacity = 0.85
-unfocused-split-fill = #0b0a14
-split-divider-color = #c43bff
+unfocused-split-fill = #000000
+split-divider-color = #3a3a3a
 
 
-# --- Padding ---
+# --- Padding (page margins) ---
+# window-padding-x = 18
+# window-padding-y = 14
 window-padding-balance = true
 window-padding-color = background
 
@@ -100,4 +129,6 @@ keybind = ctrl+.=text:\x1b[46;5u
 keybind = ctrl+,=text:\x1b[44;5u
 keybind = ctrl+;=text:\x1b[59;5u
 keybind = ctrl+'=text:\x1b[39;5u
-keybind = ctrl+==text:\x1b[61;5u
+keybind = ctrl+==increase_font_size:1
+keybind = ctrl+shift+==increase_font_size:1
+keybind = ctrl+-=decrease_font_size:1

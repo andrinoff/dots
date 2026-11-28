@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "andrinoff.workspaces",
+  "name": "Sketchbook workspaces",
+  "version": "1.0.0",
+  "author": "andrinoff",
+  "description": "Workspaces drawn like the tmux status line: the shown one inverted, occupied ones ticked",
+  "kinds": [
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "barWidget": "Workspaces.qml"
+  },
+  "barWidget": {
+    "displayName": "Sketchbook workspaces",
+    "description": "Workspaces drawn like the tmux status line: the shown one inverted, occupied ones ticked",
+    "category": "Compositor",
+    "allowMultiple": false
+  },
+  "omarchy": {
+    "clonedFrom": "omarchy.workspaces"
+  }
+}

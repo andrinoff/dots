@@ -1,0 +1,1 @@
+/home/andrinoff/.agents/AGENTS.md

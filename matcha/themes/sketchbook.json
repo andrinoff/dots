@@ -1,0 +1,16 @@
+{
+  "name": "Sketchbook",
+  "accent": "#FFFFFF",
+  "accent_dark": "#3A3A3A",
+  "accent_text": "#FFFFFF",
+  "secondary": "#6B6B6B",
+  "subtle_text": "#A3A3A3",
+  "muted_text": "#6B6B6B",
+  "dim_text": "#A3A3A3",
+  "danger": "#D96C6C",
+  "warning": "#E4E4E4",
+  "tip": "#A3A3A3",
+  "link": "#FFFFFF",
+  "directory": "#E4E4E4",
+  "contrast": "#000000"
+}

@@ -1,0 +1,208 @@
+# Sketchbook: white pen on black paper. Hierarchy from brightness, bold,
+# italic and underline; red only for errors and unread-mention badges.
+
+[ui.border]
+default = "plain"
+composer = "plain"
+message = "plain"
+forum = "plain"
+
+[highlight.Muted]
+foreground = "#6b6b6b"
+dim = false
+
+[highlight.Border]
+foreground = "#262626"
+
+[highlight.FocusBorder]
+foreground = "#ffffff"
+
+[highlight.Selection]
+foreground = "#ffffff"
+bold = true
+
+[highlight.SelectedRow]
+background = "#1c1c1c"
+
+[highlight.SelectionBorder]
+foreground = "#ffffff"
+bold = true
+
+[highlight.ScrollbarThumb]
+foreground = "#6b6b6b"
+
+[highlight.LoginTitle]
+foreground = "#ffffff"
+
+[highlight.HeaderTitle]
+foreground = "#ffffff"
+
+[highlight.MarkdownHeading1]
+foreground = "#ffffff"
+
+[highlight.EmbedTitle]
+foreground = "#ffffff"
+
+[highlight.ActiveField]
+foreground = "#ffffff"
+bold = true
+
+[highlight.BotBadge]
+foreground = "#e4e4e4"
+background = "#3a3a3a"
+
+[highlight.UnreadNotice]
+foreground = "#ffffff"
+bold = true
+
+[highlight.Editing]
+foreground = "#ffffff"
+
+[highlight.Reaction]
+foreground = "#a3a3a3"
+
+[highlight.SelfReaction]
+foreground = "#ffffff"
+bold = true
+
+[highlight.PresenceOnline]
+foreground = "#ffffff"
+
+[highlight.PresenceIdle]
+foreground = "#a3a3a3"
+
+[highlight.PresenceDnd]
+foreground = "#6b6b6b"
+
+[highlight.VoiceDisabled]
+foreground = "#a3a3a3"
+
+[highlight.VoiceConnection]
+foreground = "#ffffff"
+bold = true
+
+[highlight.FolderFallback]
+foreground = "#a3a3a3"
+
+[highlight.NavigationActive]
+foreground = "#ffffff"
+bold = true
+
+[highlight.NavigationMentioned]
+foreground = "#ffffff"
+bold = true
+
+[highlight.NavigationNotified]
+foreground = "#ffffff"
+
+[highlight.NavigationUnread]
+foreground = "#ffffff"
+
+[highlight.MentionBadge]
+foreground = "#d96c6c"
+bold = true
+
+[highlight.NotificationBadge]
+foreground = "#ffffff"
+
+[highlight.JoinedVoiceChannel]
+foreground = "#ffffff"
+bold = true
+
+[highlight.VoiceSpeaking]
+foreground = "#ffffff"
+bold = true
+
+[highlight.ReplyPingEnabled]
+foreground = "#ffffff"
+
+[highlight.Tag]
+foreground = "#a3a3a3"
+
+[highlight.RelationshipFriend]
+foreground = "#ffffff"
+
+[highlight.RelationshipIncoming]
+foreground = "#e4e4e4"
+
+[highlight.RelationshipOutgoing]
+foreground = "#a3a3a3"
+
+[highlight.RelationshipBlocked]
+foreground = "#6b6b6b"
+
+[highlight.GaugeFill]
+foreground = "#ffffff"
+
+[highlight.MarkdownQuote]
+foreground = "#a3a3a3"
+italic = true
+
+[highlight.MarkdownMarker]
+foreground = "#6b6b6b"
+
+[highlight.MessageAttachment]
+foreground = "#a3a3a3"
+
+[highlight.InlineCode]
+foreground = "#ffffff"
+background = "#1c1c1c"
+
+[highlight.InlineTimestamp]
+foreground = "#e4e4e4"
+background = "#262626"
+
+[highlight.MessageLink]
+foreground = "#ffffff"
+underline = true
+
+[highlight.MentionSelf]
+foreground = "#000000"
+background = "#ffffff"
+
+[highlight.MentionOther]
+foreground = "#ffffff"
+background = "#262626"
+
+[highlight.MentionRole]
+background = "#262626"
+
+[highlight.MentionPickerRole]
+foreground = "#a3a3a3"
+
+[highlight.EmbedGutter]
+foreground = "#3a3a3a"
+
+[highlight.EmbedLink]
+foreground = "#ffffff"
+underline = true
+
+[highlight.CommandName]
+foreground = "#ffffff"
+
+[highlight.SystemThreadName]
+foreground = "#ffffff"
+bold = true
+
+[highlight.UnreadBanner]
+foreground = "#000000"
+background = "#ffffff"
+
+[highlight.UnreadDivider]
+foreground = "#ffffff"
+
+[highlight.ForumPinnedBadge]
+foreground = "#ffffff"
+bold = true
+
+[highlight.Error]
+foreground = "#d96c6c"
+
+[highlight.Warning]
+foreground = "#ffffff"
+
+[highlight.Success]
+foreground = "#ffffff"
+
+[highlight.Info]
+foreground = "#a3a3a3"

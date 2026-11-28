@@ -90,19 +90,19 @@ repoPaths: {}
 theme:
   colors:
     text:
-      primary: "#c8c8c8"
+      primary: "#e4e4e4"
       secondary: "#a3a3a3"
-      inverted: "#0a0a0a"
+      inverted: "#000000"
       faint: "#6b6b6b"
-      warning: "#d6b98c"
-      success: "#9fb58c"
-      error: "#c98a8a"
+      warning: "#a3a3a3"
+      success: "#ffffff"
+      error: "#d96c6c"
     background:
-      selected: "#242424"
+      selected: "#1c1c1c"
     border:
       primary: "#6b6b6b"
       secondary: "#3a3a3a"
-      faint: "#242424"
+      faint: "#262626"
   ui:
     sectionsShowCount: true
     table:

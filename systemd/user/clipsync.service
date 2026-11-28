@@ -1,0 +1,12 @@
+[Unit]
+Description=Clipboard sync server for iPhone (Tailscale only)
+After=graphical-session.target
+PartOf=graphical-session.target
+
+[Service]
+ExecStart=/home/andrinoff/.local/bin/clipsync 100.121.126.67
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=graphical-session.target

@@ -1,5 +1,5 @@
 [editor]
-theme = "nord"
+theme = "sketchbook"
 mode = "helix"
 high-fps = true
 smooth-scroll = false
@@ -50,6 +50,8 @@ config = ["warn", "error"]
 hyper = ["warn", "error"]
 lsp = ["warn","error"]
 reload = ["off"]
+theme = ["off"]
+
 
 [keybinds]
 command-palette = "ctrl+p"
@@ -94,7 +96,7 @@ icon-color = "#fff"
 ignore = [".claude", ".crush", ".git", ".DS_Store"]
 
 [formatters]
-md = ["prettier", "--prose-wrap", "always", "--stdin-filepath", "{path}"]
+md = ["/home/andrinoff/.config/joy/prettier-md.sh", "{path}"]
 
 [languages.go]
 icon = "\udb81\udfd3"
@@ -118,23 +120,3 @@ follow = false
 [lua]
 paths = ["~/work/plugins"]
 disabled = ["loam"]
-
-[remote]
-lsp = "host"
-crush = "host"
-
-[[projects]]
-name = "SuperJoy🌃"
-path = "~/work/superjoy"
-
-[[projects]]
-name = "Crush🩷"
-path = "~/work/crush"
-
-[[projects]]
-name = "Bubbletea🧋"
-path = "~/work/bubbletea"
-
-[[projects]]
-name = "Home"
-path = "/ssh:server.andrinoff.com/~/github/home"

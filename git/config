@@ -1,0 +1,155 @@
+[user]
+	name = drew
+	email = me@andrinoff.com
+	signingkey = C2E661E4E4BA9F53
+[commit]
+	gpgsign = true
+	verbose = true
+[tag]
+	gpgSign = true
+	sort = -version:refname
+[gpg]
+	program = gpg
+	format = openpgp
+[core]
+	# editor = loom
+	pager = delta
+[sequence]
+	editor = loom
+[init]
+	defaultBranch = main
+[push]
+	autoSetupRemote = true
+	followTags = true
+[pull]
+	rebase = true
+[fetch]
+	prune = true
+	pruneTags = true
+[rebase]
+	autoStash = true
+	autoSquash = true
+	updateRefs = true
+[rerere]
+	enabled = true
+	autoupdate = true
+[merge]
+	conflictStyle = zdiff3
+[diff]
+	algorithm = histogram
+	colorMoved = zebra
+	colorMovedWS = allow-indentation-change
+	mnemonicPrefix = true
+	renames = true
+[branch]
+	sort = -committerdate
+[column]
+	ui = auto
+[help]
+	autocorrect = prompt
+
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	features = ink
+	navigate = true
+	line-numbers = true
+	hyperlinks = true
+[delta "ink"]
+	dark = true
+	syntax-theme = ansi
+	file-style = "#ffffff" bold
+	file-decoration-style = "#3a3a3a" ul
+	file-added-label = [+]
+	file-removed-label = [-]
+	file-modified-label = [~]
+	hunk-header-style = file line-number syntax
+	hunk-header-decoration-style = "#3a3a3a" box
+	hunk-header-file-style = "#a3a3a3"
+	hunk-header-line-number-style = "#6b6b6b"
+	minus-style = "#6b6b6b" "#140f0f"
+	minus-emph-style = "#a3a3a3" "#2a1c1c"
+	plus-style = syntax "#0f140f"
+	plus-emph-style = syntax "#1c2a1c"
+	zero-style = syntax
+	whitespace-error-style = "#d6b98c" reverse
+	map-styles = bold purple => "#a3a3a3" "#1a1a1a", bold cyan => "#ffffff" "#242424"
+	line-numbers-minus-style = "#6b6b6b"
+	line-numbers-plus-style = "#ffffff"
+	line-numbers-zero-style = "#3a3a3a"
+	line-numbers-left-format = "{nm:>4} "
+	line-numbers-right-format = "{np:>4} │ "
+	line-numbers-left-style = "#2a2a2a"
+	line-numbers-right-style = "#2a2a2a"
+	blame-palette = "#000000 #0f0f0f"
+	blame-format = "{author:<14} {commit:<8} {timestamp:<15}"
+	commit-decoration-style = "#3a3a3a" box
+	commit-style = "#d6b98c"
+	merge-conflict-begin-symbol = ▼
+	merge-conflict-end-symbol = ▲
+	merge-conflict-ours-diff-header-style = "#ffffff" bold
+	merge-conflict-theirs-diff-header-style = "#a3a3a3" bold
+
+[color]
+	ui = auto
+[color "status"]
+	header = "#6b6b6b"
+	branch = "#ffffff" bold
+	localBranch = "#ffffff" bold
+	remoteBranch = "#a3a3a3"
+	added = "#ffffff"
+	changed = "#a3a3a3"
+	untracked = "#6b6b6b"
+	unmerged = "#d6b98c" bold
+	nobranch = "#d6b98c" bold
+[color "branch"]
+	current = "#ffffff" bold
+	local = "#a3a3a3"
+	remote = "#6b6b6b"
+	upstream = "#6b6b6b" italic
+	plain = "#a3a3a3"
+[color "decorate"]
+	HEAD = "#ffffff" bold
+	branch = "#a3a3a3" bold
+	remoteBranch = "#6b6b6b"
+	tag = "#d6b98c"
+	stash = "#6b6b6b" italic
+
+[alias]
+	co = checkout
+	br = branch
+	ci = commit -s
+	st = status -sb
+	cip = "!f() { git commit -s \"$@\" && git push; }; f"
+	unstage = restore --staged
+	last = log -1 HEAD --stat
+	# graph: hash, refs, subject, relative date, author, signature (G good, N none, B bad)
+	lg = log --graph --all --date=relative --format='%C(#d6b98c)%h%C(reset)%C(auto)%d%C(reset) %s %C(#6b6b6b)· %ad · %an · %G?%C(reset)'
+	l = log --graph --date=relative --format='%C(#d6b98c)%h%C(reset)%C(auto)%d%C(reset) %s %C(#6b6b6b)· %ad%C(reset)' -20
+	a = add .
+	# fix up an earlier commit and fold it in right away
+	fixup = "!f() { sha=$(git rev-parse \"${1:-HEAD}\") && git commit --fixup \"$sha\" && git rebase -i --autosquash \"$sha~1\"; }; f"
+	undo = reset --soft HEAD~1
+	amend = commit --amend --no-edit
+	wip = "!git add -A && git commit --no-verify --no-gpg-sign -m 'WIP'"
+	# pick a recent branch with fzf
+	recent = "!git branch --sort=-committerdate --format='%(refname:short)\t%(committerdate:relative)\t%(subject)' | column -ts \"$(printf '\\t')\" | fzf --no-sort --ansi --preview 'git l --color=always {1}' | awk '{print $1}' | xargs -r git switch"
+	gone = "!git fetch -p && git for-each-ref --format '%(refname:short) %(upstream:track)' refs/heads | awk '$2 == \"[gone]\" {print $1}' | xargs -r git branch -D"
+	pushf = "!f() { b=$(git symbolic-ref --short HEAD) || return 1; r=$(git config \"branch.$b.pushremote\" || git config \"branch.$b.remote\") || { git push --force-with-lease \"$@\"; return; }; m=$(git config \"branch.$b.merge\" || echo \"refs/heads/$b\"); h=$(git ls-remote \"$r\" \"$m\" | cut -f1); if [ -n \"$h\" ] && ! git reflog --format=%H \"refs/heads/$b\" | grep -qx \"$h\"; then echo \"pushf: $m on $r is at $h, which this branch never pointed to (someone else pushed). Inspect: git fetch $r $m && git log HEAD..FETCH_HEAD\" >&2; return 1; fi; git push --force-with-lease=\"$m:$h\" \"$r\" \"HEAD:$m\" \"$@\"; }; f"
+
+[includeIf "gitdir:~/work/"]
+	path = config-charm
+[includeIf "hasconfig:remote.*.url:*:charmbracelet/**"]
+	path = config-charm
+[includeIf "hasconfig:remote.*.url:**/charmbracelet/**"]
+	path = config-charm
+[includeIf "hasconfig:remote.*.url:*:floatpane/**"]
+	path = config-floatpane
+[includeIf "hasconfig:remote.*.url:**/floatpane/**"]
+	path = config-floatpane
+[credential "https://github.com"]
+	helper = 
+	helper = !gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !gh auth git-credential

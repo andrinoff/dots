@@ -1,0 +1,16 @@
+#!/bin/bash
+# Keep tmux panes on the terminal's own colors: see-through background and
+# Ghostty's fixed palette. Omarchy's theme sync paints every tmux pane with the
+# theme (a window style, a cursor colour, and OSC palette/fg/bg/cursor/selection
+# sequences into each pane); undo all of it after each switch.
+
+tmux list-sessions >/dev/null 2>&1 || exit 0
+
+tmux set-option -g window-style default \; set-option -g window-active-style default \; set-option -gu cursor-colour
+
+# OSC 104 palette, 110 fg, 111 bg, 112 cursor, 117/119 selection: back to the terminal's.
+tmux list-panes -a -F '#{pane_tty}' 2>/dev/null | sort -u | while IFS= read -r tty; do
+  [[ $tty == /dev/pts/* ]] && printf '\e]104\a\e]110\a\e]111\a\e]112\a\e]117\a\e]119\a' >"$tty" 2>/dev/null
+done
+
+exit 0

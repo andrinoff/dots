@@ -1,0 +1,10 @@
+[bar]
+background       = "#000000"
+background-alpha = 1.0
+text             = "#e4e4e4"
+active           = "#d96c6c"
+# A little taller than stock, so the bar reads as the page header.
+scale-with-font  = true
+size-horizontal  = 30
+size-vertical    = 32
+icon-size        = 13

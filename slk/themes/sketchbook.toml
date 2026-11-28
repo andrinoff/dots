@@ -1,0 +1,37 @@
+name = "Sketchbook"
+
+[colors]
+primary      = "#ffffff"
+accent       = "#ffffff"
+warning      = "#e4e4e4"
+error        = "#d96c6c"
+background   = "#000000"
+surface      = "#121212"
+surface_dark = "#000000"
+text         = "#e4e4e4"
+text_muted   = "#6b6b6b"
+border       = "#262626"
+
+sidebar_background = "#121212"
+sidebar_text       = "#a3a3a3"
+sidebar_text_muted = "#6b6b6b"
+rail_background    = "#121212"
+
+selection_background   = "#ffffff"
+selection_foreground   = "#000000"
+selection_bg_focused   = "#1c1c1c"
+selection_bg_unfocused = "#121212"
+search_highlight_bg    = "#a3a3a3"
+search_highlight_fg    = "#000000"
+compose_insert_bg      = "#121212"
+
+username            = "#ffffff"
+sidebar_selected_bg = "#1c1c1c"
+sidebar_selected_fg = "#ffffff"
+mention_badge_bg    = "#d96c6c"
+mention_badge_fg    = "#000000"
+
+self_mention_bg       = "#ffffff"
+self_mention_fg       = "#000000"
+mention_highlight_bg  = "#121212"
+mention_highlight_bar = "#ffffff"

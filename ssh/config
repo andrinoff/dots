@@ -1,0 +1,17 @@
+# Show gpg-agent PIN prompt (pinentry-curses) in the terminal running ssh
+Match host * exec "gpg-connect-agent UPDATESTARTUPTTY /bye >/dev/null 2>&1"
+
+
+Host github.com
+  User git
+  IdentityAgent ${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh
+  IdentityFile ~/.ssh/id_yubikey_gpg.pub
+  IdentityFile ~/.ssh/id_ed25519_sk_github
+  IdentitiesOnly yes
+
+
+Host server.andrinoff.com
+    IdentityAgent ${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh
+    IdentityFile ~/.ssh/id_yubikey_gpg.pub
+    IdentityFile ~/.ssh/id_ed25519_sk_github
+    IdentitiesOnly yes

@@ -1,0 +1,8 @@
+[Unit]
+Description=FaceTime Enhanced virtual camera (/dev/video1)
+
+[Service]
+ExecStart=/home/andrinoff/.local/bin/facetime-enhanced
+SuccessExitStatus=255
+Restart=on-failure
+RestartSec=2

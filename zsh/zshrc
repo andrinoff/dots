@@ -1,0 +1,15 @@
+
+
+# Added by spotatui installer
+export PATH="$HOME/.local/bin:$PATH"
+
+
+# Added by Antigravity CLI installer
+export PATH="/home/andrinoff/.local/bin:$PATH"
+
+# gpg-agent: show pinentry-curses (incl. for SSH / git signing) in the current terminal
+export GPG_TTY=$TTY
+gpg-connect-agent updatestartuptty /bye >/dev/null
+
+# Go binaries (ash, crush, loom, matcha)
+export PATH="$HOME/go/bin:$PATH"

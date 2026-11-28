@@ -1,0 +1,133 @@
+#!/bin/bash
+# Keeps ~/.config and the Omarchy look in sync with github.com/andrinoff/dots.
+# dots-sync.timer runs it every day; run it by hand any time.
+#
+# On a new machine, this installs everything (replaced files are backed up):
+#   bash <(curl -fsSL https://raw.githubusercontent.com/andrinoff/dots/main/dots-sync)
+
+. /usr/share/omarchy/default/bash/env-bootstrap 2>/dev/null
+set -euo pipefail
+
+REPO=https://github.com/andrinoff/dots.git
+CUR=$HOME/.local/state/omarchy/current
+STATE=omarchy/dots-state
+
+# Files kept in ~/.config, linked to where their program looks for them.
+LINKS=(
+  bash/bashrc .bashrc
+  bash/bash_profile .bash_profile
+  bash/bash_logout .bash_logout
+  zsh/zshrc .zshrc
+  zsh/zprofile .zprofile
+  zsh/zshenv .zshenv
+  ssh/config .ssh/config
+  xcompose/XCompose .XCompose
+  omarchy/hypr-toggles .local/state/omarchy/toggles/hypr
+)
+
+# adopt: a real file in the way is newer than ours, so it moves into ~/.config.
+# keep: ours wins, the file in the way is kept as <name>.pre-dots.
+link() {
+  local i src dst
+  for ((i = 0; i < ${#LINKS[@]}; i += 2)); do
+    src=$HOME/.config/${LINKS[i]} dst=$HOME/${LINKS[i + 1]}
+    [[ $(readlink "$dst") == "$src" ]] && continue
+    mkdir -p "$(dirname "$src")" "$(dirname "$dst")"
+    if [[ -e $dst && ! -L $dst ]]; then
+      if [[ $1 == adopt ]]; then
+        rm -rf "$src"
+        mv "$dst" "$src"
+      else
+        mv "$dst" "$dst.pre-dots"
+      fi
+    fi
+    [[ -e $src ]] && ln -sfn "$src" "$dst"
+  done
+}
+
+# What makes this machine look the way it does, beyond the files themselves.
+look() {
+  local g
+  echo "theme $(cat "$CUR/theme.name")"
+  echo "icons $(omarchy-icons-current --id)"
+  echo "background $(basename "$(readlink "$CUR/background")")"
+  for g in omarchy/themes/*/.git omarchy/plugins/*/.git; do
+    [[ -d $g ]] || continue
+    echo "repo ${g%/.git} $(git -C "${g%/.git}" remote get-url origin)"
+  done
+}
+
+want() { sed -n "s/^$1 //p" "$STATE"; }
+
+apply() {
+  local dir url bg
+  [[ -f $STATE ]] || return 0
+  want repo | while read -r dir url; do
+    [[ -d $dir ]] || git clone -q "$url" "$dir"
+  done
+  [[ $(cat "$CUR/theme.name" 2>/dev/null) == "$(want theme)" ]] || omarchy-theme-set "$(want theme)"
+  [[ $(omarchy-icons-current --id) == "$(want icons)" ]] || omarchy-icons-set "$(want icons)"
+  bg=$CUR/theme/backgrounds/$(want background)
+  [[ ! -f $bg || $(readlink "$CUR/background") == "$bg" ]] || omarchy-theme-bg-set "$bg"
+}
+
+# Theme and plugin repos are cloned from their own remotes, not stored here.
+exclude_repos() {
+  look | sed -n 's|^repo \([^ ]*\) .*|/\1/|p' >.git/info/exclude
+}
+
+fail() {
+  notify-send -u critical "Config sync" "$1" 2>/dev/null || true
+  echo "$1" >&2
+  exit 1
+}
+
+cd "$HOME/.config"
+
+if [[ ! -d .git ]]; then
+  git init -q -b main
+  git remote add origin "$REPO"
+  git fetch -q origin
+  git ls-tree -r --name-only origin/main |
+    tar -czf "$HOME/config-before-dots-$(date +%F).tar.gz" --ignore-failed-read -T - 2>/dev/null || true
+  git reset -q --hard origin/main
+  git branch -q -u origin/main
+  mv ~/.gitconfig ~/.gitconfig.pre-dots 2>/dev/null || true
+  link keep
+  look >.git/dots-look
+  apply || echo "Some of the look did not apply, the next sync retries it" >&2
+  look >.git/dots-look
+  exclude_repos
+  systemctl --user daemon-reload
+  systemctl --user enable --now dots-sync.timer
+  echo "Installed. Old copies of replaced files: ~/config-before-dots-$(date +%F).tar.gz"
+  exit
+fi
+
+link adopt
+
+# Only a look changed here since the last sync goes up, so a look that failed
+# to apply is retried instead of pushed back over the one in the repo.
+look >.git/dots-look.now
+cmp -s .git/dots-look.now .git/dots-look || cp .git/dots-look.now "$STATE"
+exclude_repos
+
+git add -A
+if ! git diff --cached --quiet; then
+  if echo | gpg --batch --pinentry-mode error -u "$(git config user.signingkey)" --clearsign >/dev/null 2>&1; then
+    git commit -q -S -m "chore: auto-sync $(date +%F) from $(uname -n)"
+  else
+    notify-send "Config sync" "Changes wait to be pushed until your YubiKey is plugged in and unlocked" 2>/dev/null || true
+  fi
+fi
+
+git pull -q --rebase --autostash || {
+  git rebase --abort 2>/dev/null || true
+  fail "Pulling github.com/andrinoff/dots conflicted, sort it out in ~/.config"
+}
+git push -q || fail "Pushing to github.com/andrinoff/dots failed"
+
+link keep
+apply || echo "Some of the look did not apply, the next sync retries it" >&2
+look >.git/dots-look
+exclude_repos

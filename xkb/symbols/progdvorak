@@ -1,0 +1,84 @@
+// Programmer Dvorak Custom: the macOS "Programmer Dvorak Custom" .keylayout,
+// rebuilt for XKB (Omarchy / Hyprland).
+//
+// Programmer Dvorak with the opening brackets together, the closing brackets
+// together, and Shift on the number row giving the digits 1..0 in order.
+// Keys are named by their US QWERTY position; the keyboard itself must send
+// plain QWERTY (keep the Corne on its QWERTY Vial keymap).
+//
+// Self-contained on purpose: it does not include "us(basic)". Every key that
+// us(basic) defines is defined here, so including it would add nothing, and
+// leaving it out guarantees that nothing from another layout can leak in.
+// Only two levels exist (no AltGr / third level), so Option/Alt types the
+// same as without it. Letters are ALPHABETIC so Caps Lock capitalises them;
+// every other key is TWO_LEVEL, so Caps Lock leaves the number row and
+// punctuation alone. Control + a letter key gives the control character of
+// the Dvorak letter (normal XKB behaviour for Latin keysyms).
+//
+// Install as ~/.config/xkb/symbols/progdvorak and select layout "progdvorak".
+
+default partial alphanumeric_keys
+xkb_symbols "basic" {
+    name[Group1] = "English (Programmer Dvorak Custom)";
+
+    // Number row:  $ & [ { ( = * ) } ] + ! #   Shift: ~ 1 2 3 4 5 6 7 8 9 0 % `
+    key <TLDE> { type[Group1] = "TWO_LEVEL", [ dollar,       asciitilde  ] };
+    key <AE01> { type[Group1] = "TWO_LEVEL", [ ampersand,    1           ] };
+    key <AE02> { type[Group1] = "TWO_LEVEL", [ bracketleft,  2           ] };
+    key <AE03> { type[Group1] = "TWO_LEVEL", [ braceleft,    3           ] };
+    key <AE04> { type[Group1] = "TWO_LEVEL", [ parenleft,    4           ] };
+    key <AE05> { type[Group1] = "TWO_LEVEL", [ equal,        5           ] };
+    key <AE06> { type[Group1] = "TWO_LEVEL", [ asterisk,     6           ] };
+    key <AE07> { type[Group1] = "TWO_LEVEL", [ parenright,   7           ] };
+    key <AE08> { type[Group1] = "TWO_LEVEL", [ braceright,   8           ] };
+    key <AE09> { type[Group1] = "TWO_LEVEL", [ bracketright, 9           ] };
+    key <AE10> { type[Group1] = "TWO_LEVEL", [ plus,         0           ] };
+    key <AE11> { type[Group1] = "TWO_LEVEL", [ exclam,       percent     ] };
+    key <AE12> { type[Group1] = "TWO_LEVEL", [ numbersign,   grave       ] };
+
+    // Top row:  ; , . p y f g c r l / @ \   Shift: : < > P Y F G C R L ? ^ |
+    key <AD01> { type[Group1] = "TWO_LEVEL",  [ semicolon,    colon       ] };
+    key <AD02> { type[Group1] = "TWO_LEVEL",  [ comma,        less        ] };
+    key <AD03> { type[Group1] = "TWO_LEVEL",  [ period,       greater     ] };
+    key <AD04> { type[Group1] = "ALPHABETIC", [ p,            P           ] };
+    key <AD05> { type[Group1] = "ALPHABETIC", [ y,            Y           ] };
+    key <AD06> { type[Group1] = "ALPHABETIC", [ f,            F           ] };
+    key <AD07> { type[Group1] = "ALPHABETIC", [ g,            G           ] };
+    key <AD08> { type[Group1] = "ALPHABETIC", [ c,            C           ] };
+    key <AD09> { type[Group1] = "ALPHABETIC", [ r,            R           ] };
+    key <AD10> { type[Group1] = "ALPHABETIC", [ l,            L           ] };
+    key <AD11> { type[Group1] = "TWO_LEVEL",  [ slash,        question    ] };
+    key <AD12> { type[Group1] = "TWO_LEVEL",  [ at,           asciicircum ] };
+    key <BKSL> { type[Group1] = "TWO_LEVEL",  [ backslash,    bar         ] };
+
+    // Home row:  a o e u i d h t n s -   Shift: A O E U I D H T N S _
+    key <AC01> { type[Group1] = "ALPHABETIC", [ a,            A           ] };
+    key <AC02> { type[Group1] = "ALPHABETIC", [ o,            O           ] };
+    key <AC03> { type[Group1] = "ALPHABETIC", [ e,            E           ] };
+    key <AC04> { type[Group1] = "ALPHABETIC", [ u,            U           ] };
+    key <AC05> { type[Group1] = "ALPHABETIC", [ i,            I           ] };
+    key <AC06> { type[Group1] = "ALPHABETIC", [ d,            D           ] };
+    key <AC07> { type[Group1] = "ALPHABETIC", [ h,            H           ] };
+    key <AC08> { type[Group1] = "ALPHABETIC", [ t,            T           ] };
+    key <AC09> { type[Group1] = "ALPHABETIC", [ n,            N           ] };
+    key <AC10> { type[Group1] = "ALPHABETIC", [ s,            S           ] };
+    key <AC11> { type[Group1] = "TWO_LEVEL",  [ minus,        underscore  ] };
+
+    // Bottom row:  ' q j k x b m w v z   Shift: " Q J K X B M W V Z
+    key <AB01> { type[Group1] = "TWO_LEVEL",  [ apostrophe,   quotedbl    ] };
+    key <AB02> { type[Group1] = "ALPHABETIC", [ q,            Q           ] };
+    key <AB03> { type[Group1] = "ALPHABETIC", [ j,            J           ] };
+    key <AB04> { type[Group1] = "ALPHABETIC", [ k,            K           ] };
+    key <AB05> { type[Group1] = "ALPHABETIC", [ x,            X           ] };
+    key <AB06> { type[Group1] = "ALPHABETIC", [ b,            B           ] };
+    key <AB07> { type[Group1] = "ALPHABETIC", [ m,            M           ] };
+    key <AB08> { type[Group1] = "ALPHABETIC", [ w,            W           ] };
+    key <AB09> { type[Group1] = "ALPHABETIC", [ v,            V           ] };
+    key <AB10> { type[Group1] = "ALPHABETIC", [ z,            Z           ] };
+
+    // ISO extra key (between Left Shift and Z): same as the ` key. Apple ISO
+    // keyboards may swap this key with <TLDE>; both type the same here.
+    // "replace" drops the four levels symbols/pc gives this key (< > | ¦), so
+    // no stray third level survives the merge.
+    replace key <LSGT> { type[Group1] = "TWO_LEVEL", [ dollar, asciitilde ] };
+};
